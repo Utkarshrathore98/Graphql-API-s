@@ -1,0 +1,7 @@
+type Query {
+  getPrintStatement(filter: getPrintStatementInput): [String]
+}
+
+input getPrintStatementInput {
+  name: String!
+}
