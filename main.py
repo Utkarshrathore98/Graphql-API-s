@@ -16,8 +16,10 @@ def graphql_server():
     data = request.get_json()
     success, result = graphql_sync(schema, data, context_value=request)
     status_code = 200 if success else 400
-    return jsonify(result), status_code
+
+    # Modify the response format
+    modified_result = result.get("data")
+    return jsonify(modified_result), status_code
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
-
